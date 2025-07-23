@@ -18,7 +18,7 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: [
-      'run', 'deploy', 'SERVICE_NAME',
+      'run', 'deploy', 'testgcloudbuild',
       '--image', 'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgcloudbuild:$COMMIT_SHA',
       '--region', 'REGION',
       '--allow-unauthenticated'
