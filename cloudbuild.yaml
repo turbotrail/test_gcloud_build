@@ -5,23 +5,23 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build', '-t',
-      'us-central-1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgc:$COMMIT_SHA', 
+      'us-central-1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgcloudbuild:$COMMIT_SHA', 
       '.'
     ]
   # Push image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push',
-      'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgc:$COMMIT_SHA'
+      'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgcloudbuild:$COMMIT_SHA'
     ]
   # Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: [
       'run', 'deploy', 'SERVICE_NAME',
-      '--image', 'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgc:$COMMIT_SHA',
+      '--image', 'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgcloudbuild:$COMMIT_SHA',
       '--region', 'REGION',
       '--allow-unauthenticated'
     ]
 images:
-  - 'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgc:$COMMIT_SHA'
+  - 'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgcloudbuild:$COMMIT_SHA'
