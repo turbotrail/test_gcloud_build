@@ -5,7 +5,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build', '-t',
-      'us-central-1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgcloudbuild:$COMMIT_SHA', 
+      'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgcloudbuild:$COMMIT_SHA', 
       '.'
     ]
   # Push image to Artifact Registry
