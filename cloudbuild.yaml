@@ -20,7 +20,7 @@ steps:
     args: [
       'run', 'deploy', 'testgcloudbuild',
       '--image', 'us-central1-docker.pkg.dev/skilled-circle-381903/testgcloudbuild/testgcloudbuild:$COMMIT_SHA',
-      '--region', 'REGION',
+      '--region', 'us-central1',
       '--allow-unauthenticated'
     ]
 images:
